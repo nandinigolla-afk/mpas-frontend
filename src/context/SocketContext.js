@@ -28,7 +28,7 @@ async function autoSyncLocation() {
   if (!lat || !lng) return;
   // Already have location — just sync to backend
   try {
-    await fetch((process.env.REACT_APP_API_URL || 'http://localhost:5000') + '/api/users/location', {
+    await fetch((process.env.REACT_APP_API_URL || 'https://mpas-backend-1.onrender.com') + '/api/users/location', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
       body: JSON.stringify({ lat: parseFloat(lat), lng: parseFloat(lng) }),
