@@ -240,7 +240,10 @@ export default function Report() {
               <p style={{fontSize:13,color:'var(--text-muted)',marginBottom:8}}>Click map to pin exact location:</p>
               <div style={{height:300,borderRadius:12,overflow:'hidden',border:'2px solid var(--border)',marginBottom:20}}>
                 <MapContainer center={pos} zoom={14} style={{height:'100%'}}>
-                  <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"/>
+                <TileLayer
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+/>
                   <LocPicker onPick={setPos}/>
                   <Marker position={pos} icon={PIN}/>
                 </MapContainer>

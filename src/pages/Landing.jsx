@@ -86,7 +86,10 @@ export default function Landing() {
         <div style={{ position:'absolute', inset:0, zIndex:0 }}>
           <MapContainer center={mapCenter} zoom={isMobile?12:13} style={{ height:'100%', width:'100%' }}
             zoomControl={false} scrollWheelZoom={false} dragging={!isMobile} doubleClickZoom={false} attributionControl={false}>
-            <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"/>
+          <TileLayer
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+/>
             {alerts.map((r,i) => {
               const c = r.location?.coordinates;
               if (!c || c[0]===0) return null;

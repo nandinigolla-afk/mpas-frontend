@@ -466,7 +466,10 @@ export default function Admin() {
                 <div className="card" style={{ overflow:'hidden' }}>
                   <div style={{ height:500 }}>
                     <MapContainer center={[20.5937, 78.9629]} zoom={5} style={{ height:'100%' }}>
-                      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"/>
+                  <TileLayer
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+/>
                       {allReports.map(r => (
                         <Marker key={r._id}
                           position={[r.location.coordinates[1], r.location.coordinates[0]]}

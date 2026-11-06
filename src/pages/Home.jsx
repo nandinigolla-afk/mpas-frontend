@@ -70,7 +70,10 @@ export default function Home() {
       <div style={{position:'relative',height:heroH,overflow:'hidden'}}>
         <div style={{position:'absolute',inset:0,zIndex:0,background:'#0D3B4C'}}/>
         <MapContainer center={[17.386,78.489]} zoom={isMobile?12:14} style={{height:'100%',width:'100%',position:'relative',zIndex:1,opacity:0.85}} zoomControl={false} scrollWheelZoom={false} dragging={false} doubleClickZoom={false}>
-          <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"/>
+        <TileLayer
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+/>
           {pins.map(p=><Marker key={p.id} position={p.pos} icon={pinByStatus(p.status)}><Popup>{p.name||'Case'}</Popup></Marker>)}
           <Polyline positions={pins.slice(0,5).map(p=>p.pos)} pathOptions={{color:'#E39A2D',weight:1.5,dashArray:'8,12',opacity:0.55}}/>
         </MapContainer>
